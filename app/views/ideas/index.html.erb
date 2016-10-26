@@ -1,0 +1,8 @@
+<h3> All Ideas </h3>
+
+<% @ideas.each do |idea| %>
+<ul class=idea_<%= idea.id %>
+  <li> <%= link_to "Idea ##{idea.id}", idea_path(idea) %> </li>
+  <li> <%= link_to "Edit", edit_idea_path(idea) %> </li>
+</ul>
+<% end %>
