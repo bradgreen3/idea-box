@@ -38,6 +38,12 @@ class IdeasController < ActionController::Base
     end
   end
 
+  def destroy
+    @idea = Idea.find(params[:id])
+    @idea.delete
+    redirect_to ideas_path
+  end
+
   private
 
   def idea_params

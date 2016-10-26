@@ -4,5 +4,6 @@
 <ul class=idea_<%= idea.id %>
   <li> <%= link_to "Idea ##{idea.id}", idea_path(idea) %> </li>
   <li> <%= link_to "Edit", edit_idea_path(idea) %> </li>
+  <li> <%= link_to "Delete", idea_path(idea), method: "delete" %> </li>
 </ul>
 <% end %>
