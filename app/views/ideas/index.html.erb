@@ -1,9 +1,9 @@
 <h3> All Ideas </h3>
 
-<% @ideas.each do |idea| %>
+<% @user.ideas.each do |idea| %>
 <ul class=idea_<%= idea.id %>
-  <li> <%= link_to "Idea ##{idea.id}", idea_path(idea) %> </li>
-  <li> <%= link_to "Edit", edit_idea_path(idea) %> </li>
-  <li> <%= link_to "Delete", idea_path(idea), method: "delete" %> </li>
+  <li> <%= link_to "Idea ##{idea.id}", user_idea_path(@user, idea) %> </li>
+  <li> <%= link_to "Edit", edit_user_idea_path(@user, idea) %> </li>
+  <li> <%= link_to "Delete", user_idea_path(@user, idea), method: "delete" %> </li>
 </ul>
 <% end %>
