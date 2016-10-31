@@ -24,4 +24,21 @@ describe "user visits category index page" do
       expect(page).to have_content("Category 2")
     end
   end
+
+  context 'as a default user' do
+    it 'they are shown a 404' do
+      cat1 = Category.create(name: "Category 1")
+      cat2 = Category.create(name: "Category 2")
+      user = User.create(name: "Sal",
+                         email: "sal@sal.com",
+                         password: "pass",
+                         password_confirmation: "pass"
+                        )
+
+      allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(user)
+      visit admin_categories_path
+
+      expect(page).to have_content("The page you were looking for doesn't exist")
+    end
+  end
 end

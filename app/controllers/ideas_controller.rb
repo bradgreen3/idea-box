@@ -16,7 +16,6 @@ class IdeasController < ApplicationController
     @user = User.find(params[:user_id])
     @idea = @user.ideas.new(idea_params)
     if @idea.save
-      #fix this flash message
       flash[:success] = "You created a new idea!"
       redirect_to user_idea_path(@user, @idea)
     else
@@ -59,7 +58,7 @@ class IdeasController < ApplicationController
   private
 
   def idea_params
-    params.require(:idea).permit(:idea, :user_id)
+    params.require(:idea).permit(:idea, :user_id, :category_id)
   end
 
 end

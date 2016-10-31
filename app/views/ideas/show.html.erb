@@ -1,4 +1,12 @@
-<%= @idea.idea %>
+<table border>
+  <th> Idea </th>
+  <th> Category </th>
+  <tr>
+    <td> <%= @idea.idea %> </td>
+    <td> <%= @idea.category.name %>
+  </tr>
+</table>
+
 <br>
-<br>
+
 <%= link_to "Idea Index", user_ideas_path %>

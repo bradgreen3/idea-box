@@ -3,9 +3,10 @@ require 'rails_helper'
 describe "user edits an idea" do
   scenario "user edits an idea" do
 
+    category = Category.create(name: "Category 1")
     user = User.create(name: "Brad", email: "brad@yahoo.com", password: "pass")
-    idea = user.ideas.create(idea: "Smart cars")
-    idea2 = user.ideas.create(idea: "Square bowling balls")
+    idea = user.ideas.create(idea: "Smart cars", category_id: category.id)
+    idea2 = user.ideas.create(idea: "Square bowling balls", category_id: category.id)
 
     page.set_rack_session(user_id: user.id)
 
